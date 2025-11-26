@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import LightRays from '../components/HomeComp/LightRays '
 import BlurText from '../components/HomeComp/BlurText '
+import ServiceHome from '../components/HomeComp/ServiceHome'
+import AboutHome from '../components/HomeComp/AboutHome'
+
 import TextType from '../components/HomeComp/TextType '
 import LogoLoop from '../components/HomeComp/LogoLoop '
 import {
@@ -17,6 +20,7 @@ import {
   SiWoocommerce,
 } from "react-icons/si";
 import GlassCards from '../components/HomeComp/GlassCards'
+
 
 
 const techLogos = [
@@ -118,7 +122,7 @@ function Home() {
 <GlassCards/>
 
                {/* lOGO loop */}
-<div className='bg-black min-h-12 py-10'>
+<div className='bg-black min-h-5 py-4'>
      <div style={{ height: '200px', position: 'relative', overflow: 'hidden'}}>
       {/* Basic horizontal loop */}
       <LogoLoop
@@ -133,11 +137,12 @@ function Home() {
         fadeOut
         fadeOutColor="black"
         ariaLabel="Technology partners"
-      />
-      
-      
+      /> 
     </div>
 </div>
+<ServiceHome/>
+<AboutHome/>
+
     </div>
   )
 }

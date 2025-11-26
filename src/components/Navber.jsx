@@ -224,7 +224,10 @@ const Navbar = () => {
 
               {/* Services */}
               <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsServicesOpen(!isServicesOpen);
+                }}
                 className={`flex items-center justify-center p-3 rounded-xl transition-all duration-300 ${
                   isServiceActive() 
                     ? 'bg-gray-400/25 border border-gray-300/30 text-blue-300 shadow-lg shadow-blue-500/10' 
@@ -232,7 +235,7 @@ const Navbar = () => {
                 }`}
                 title="Services"
               >
-                <HiCog className="w-5 h-5" />
+                <BiSolidCategory className="w-5 h-5" />
                 <HiChevronDown 
                   className={`w-3 h-3 ml-1 transition-transform duration-300 ${
                     isServicesOpen ? 'rotate-180' : ''
