@@ -20,6 +20,7 @@ import {
   SiWoocommerce,
 } from "react-icons/si";
 import GlassCards from '../components/HomeComp/GlassCards'
+import TestimonialsSection from '../components/HomeComp/Testimonial'
 
 
 
@@ -76,7 +77,7 @@ function Home() {
   delay={150}
   animateBy="words"
   direction="bottom"
-  className="text-[32px] md:text-7xl font-bold text-white mb-4 "
+  className="text-[32px] md:text-7xl font-bold text-white mb-4 justify-center "
 />
         
         {/* Second text - Subtitle */}
@@ -142,6 +143,7 @@ function Home() {
 </div>
 <ServiceHome/>
 <AboutHome/>
+<TestimonialsSection/>
 
     </div>
   )

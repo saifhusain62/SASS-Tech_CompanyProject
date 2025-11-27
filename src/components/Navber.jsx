@@ -16,6 +16,7 @@ import {
   HiFilm
 } from 'react-icons/hi';
 import { BiSolidCategory } from "react-icons/bi";
+import { RiMenu4Line } from "react-icons/ri";
 
 
 const Navbar = () => {
@@ -34,14 +35,18 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdown when clicking outside
+  // Close dropdown when clicking outside (desktop only)
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsServicesOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
+    
+    if (window.innerWidth >= 768) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
@@ -189,13 +194,18 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              setIsOpen(!isOpen);
+              if (!isOpen) {
+                setIsServicesOpen(false);
+              }
+            }}
             className={`md:hidden p-2 rounded-xl transition-all duration-300 ${glassItemBase} ${glassItemHover} text-gray-200 hover:text-blue-400`}
           >
             {isOpen ? (
               <HiX className="w-6 h-6" />
             ) : (
-              <HiMenuAlt3 className="w-6 h-6" />
+              <RiMenu4Line  className="w-6 h-6" />
             )}
           </button>
         </div>
@@ -224,10 +234,7 @@ const Navbar = () => {
 
               {/* Services */}
               <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsServicesOpen(!isServicesOpen);
-                }}
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
                 className={`flex items-center justify-center p-3 rounded-xl transition-all duration-300 ${
                   isServiceActive() 
                     ? 'bg-gray-400/25 border border-gray-300/30 text-blue-300 shadow-lg shadow-blue-500/10' 
@@ -272,15 +279,19 @@ const Navbar = () => {
               
             {/* Mobile Services Submenu */}
             <div 
-              className={`w-full overflow-hidden transition-all duration-300 ${
-                isServicesOpen ? 'max-h-60' : 'max-h-0'
+              className={`w-full transition-all duration-300 ease-in-out ${
+                isServicesOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
               }`}
+              style={{
+                overflow: 'hidden'
+              }}
             >
               <div className="px-3 pt-2 space-y-1">
                 {servicesSubmenu.map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}
+                    onClick={() => setIsServicesOpen(false)}
                     className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-all duration-300 ${
                       isActive(item.path)
                         ? 'bg-gray-400/25 border border-gray-300/30 text-blue-300'
