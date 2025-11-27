@@ -4,7 +4,7 @@ import LightRays from '../components/HomeComp/LightRays '
 import BlurText from '../components/HomeComp/BlurText '
 import ServiceHome from '../components/HomeComp/ServiceHome'
 import AboutHome from '../components/HomeComp/AboutHome'
-
+import HomeWorkShow from '../components/HomeComp/HomeWorkShow'
 import TextType from '../components/HomeComp/TextType '
 import LogoLoop from '../components/HomeComp/LogoLoop '
 import {
@@ -144,6 +144,7 @@ function Home() {
 <ServiceHome/>
 <AboutHome/>
 <TestimonialsSection/>
+<HomeWorkShow/>
 
     </div>
   )
