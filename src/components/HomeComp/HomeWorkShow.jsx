@@ -105,7 +105,7 @@ const RecentWorks = () => {
   const getCategoryColor = (category) => {
     const colors = {
       web: 'from-blue-500 to-cyan-500',
-      digital: 'from-purple-500 to-pink-500',
+      digital: 'from-blue-500 to-pink-500',
       video: 'from-red-500 to-orange-500',
       graphics: 'from-green-500 to-emerald-500',
     };
@@ -142,7 +142,7 @@ const RecentWorks = () => {
     <section className="min-h-screen bg-black py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
       </div>
@@ -155,7 +155,7 @@ const RecentWorks = () => {
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Recent{' '}
-            <span className="bg-gradient-to-r from-purple-500 to-cyan-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
               Works
             </span>
           </h2>
@@ -177,7 +177,7 @@ const RecentWorks = () => {
               onClick={() => setActiveCategory(category.id)}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === category.id
-                  ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white shadow-lg shadow-purple-500/25'
+                  ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25'
                   : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
               }`}
             >
@@ -199,7 +199,7 @@ const RecentWorks = () => {
               className="group relative"
             >
               {/* Glass Card */}
-              <div className="relative h-full bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2">
+              <div className="relative h-full bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2">
                 {/* Image Container */}
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -226,7 +226,7 @@ const RecentWorks = () => {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-300">
                     {work.title}
                   </h3>
                   <p className="text-gray-400 text-sm mb-4 line-clamp-2">
@@ -254,17 +254,17 @@ const RecentWorks = () => {
         </div>
 
         {/* View All Button */}
-        <div className="text-center mt-12" data-aos="fade-up" data-aos-delay="200">
+        {/* <div className="text-center mt-12" data-aos="fade-up" data-aos-delay="200">
           <a
             href="/portfolio"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105"
           >
             <span>View All Projects</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

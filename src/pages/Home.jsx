@@ -21,6 +21,7 @@ import {
 } from "react-icons/si";
 import GlassCards from '../components/HomeComp/GlassCards'
 import TestimonialsSection from '../components/HomeComp/Testimonial'
+import Footer from '../components/Footer'
 
 
 
@@ -145,6 +146,11 @@ function Home() {
 <AboutHome/>
 <TestimonialsSection/>
 <HomeWorkShow/>
+<div className='bg-black py-5'>
+  <Footer/>
+
+</div>
+
 
     </div>
   )

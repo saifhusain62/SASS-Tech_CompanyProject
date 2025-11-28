@@ -10,12 +10,19 @@ import VideoEditing from './pages/VideoEditing';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 
+
+
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900">
+      {/* Main wrapper with flex column and min-height screen */}
+      <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900">
+        
+        {/* Navbar */}
         <Navbar />
-        <div className="pt-24">
+        
+        {/* Main content area - flex-grow pushes footer to bottom */}
+        <main className="flex-grow pt-24">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services/website-development" element={<WebsiteDevelopment />} />
@@ -25,7 +32,11 @@ function App() {
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </div>
+        </main>
+        
+        {/* Footer - now inside the flex container */}
+        
+        
       </div>
     </Router>
   );
