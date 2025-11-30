@@ -1,9 +1,16 @@
 import React from 'react'
+import AboutHero from '../components/AboutComp/AboutHero'
+import MissionSection from '../components/AboutComp/Mission'
+import VisionSection from '../components/AboutComp/Vission'
+import TeamSection from '../components/AboutComp/TeamSection'
 
 function AboutUs() {
   return (
     <div>
-      <h1> This is AboutUs page</h1>
+      <AboutHero/>
+      <MissionSection/>
+      <VisionSection/>
+      <TeamSection/>
     </div>
   )
 }

@@ -4,10 +4,8 @@ import { Link, useLocation } from 'react-router-dom';
 import logo from '/logo.png'
 import { 
   HiHome, 
-  HiCog, 
   HiUserGroup, 
   HiMail,
-  HiMenuAlt3,
   HiX,
   HiChevronDown,
   HiCode,
@@ -50,11 +48,12 @@ const Navbar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Close mobile menu on route change
+  // Close mobile menu and services submenu on route change
   useEffect(() => {
-    setIsOpen(false);
-    setIsServicesOpen(false);
-  }, [location]);
+    // avoid unnecessary updates by guarding
+    if (isOpen) setIsOpen(false);
+    if (isServicesOpen) setIsServicesOpen(false);
+  }, [location.pathname]);
 
   const servicesSubmenu = [
     { name: 'Website Development', path: '/services/website-development', icon: HiCode },
@@ -87,11 +86,9 @@ const Navbar = () => {
             className="flex items-center space-x-2 group"
           >
             <div className="w-24  flex items-center justify-center transform  transition-transform duration-300 shadow-lg ">
-              <img src={logo} alt="" />
+              <img src={logo} alt="logo" />
             </div>
-            <span className="text-white font-bold text-xl hidden sm:block">
-              
-            </span>
+            <span className="text-white font-bold text-xl hidden sm:block"></span>
           </Link>
 
           {/* Desktop Menu */}
@@ -122,9 +119,7 @@ const Navbar = () => {
               >
                 <BiSolidCategory  className="w-5 h-5" />
                 <HiChevronDown 
-                  className={`w-3 h-3 ml-1 transition-transform duration-300 ${
-                    isServicesOpen ? 'rotate-180' : ''
-                  }`} 
+                  className={`w-3 h-3 ml-1 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} 
                 />
               </button>
 
@@ -137,22 +132,25 @@ const Navbar = () => {
                 }`}
               >
                 <div className="p-2 space-y-1">
-                  {servicesSubmenu.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.path}
-                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
-                        isActive(item.path)
-                          ? 'bg-gray-400/25 border border-gray-300/30 text-blue-300 shadow-lg shadow-blue-500/10'
-                          : 'text-gray-200 hover:bg-gray-500/20 hover:text-blue-400 border border-transparent hover:border-gray-400/20'
-                      }`}
-                    >
-                      <div className={`p-1.5 rounded-lg ${isActive(item.path) ? 'bg-blue-500/20' : 'bg-gray-500/20'}`}>
-                        <item.icon className="w-4 h-4" />
-                      </div>
-                      <span>{item.name}</span>
-                    </Link>
-                  ))}
+                  {servicesSubmenu.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                          isActive(item.path)
+                            ? 'bg-gray-400/25 border border-gray-300/30 text-blue-300 shadow-lg shadow-blue-500/10'
+                            : 'text-gray-200 hover:bg-gray-500/20 hover:text-blue-400 border border-transparent hover:border-gray-400/20'
+                        }`}
+                      >
+                        <div className={`p-1.5 rounded-lg ${isActive(item.path) ? 'bg-blue-500/20' : 'bg-gray-500/20'}`}>
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <span>{item.name}</span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -195,12 +193,12 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => {
-              setIsOpen(!isOpen);
-              if (!isOpen) {
-                setIsServicesOpen(false);
-              }
+              // Always reset services submenu when toggling mobile menu
+              setIsServicesOpen(false);
+              setIsOpen(prev => !prev);
             }}
             className={`md:hidden p-2 rounded-xl transition-all duration-300 ${glassItemBase} ${glassItemHover} text-gray-200 hover:text-blue-400`}
+            aria-label="Toggle menu"
           >
             {isOpen ? (
               <HiX className="w-6 h-6" />
@@ -212,9 +210,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div 
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? 'max-h-[500px] pb-4' : 'max-h-0'
-          }`}
+          className={`md:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[500px] pb-4' : 'max-h-0'}`}
         >
           <div className="flex flex-col items-center space-y-2 pt-4 border-t border-gray-500/30">
             {/* Mobile Nav Icons Row */}
@@ -228,13 +224,18 @@ const Navbar = () => {
                     : `${glassItemBase} ${glassItemHover} text-gray-200 hover:text-blue-400`
                 }`}
                 title="Home"
+                onClick={() => {
+                  // close mobile menu when navigating
+                  setIsOpen(false);
+                  setIsServicesOpen(false);
+                }}
               >
                 <HiHome className="w-5 h-5" />
               </Link>
 
               {/* Services */}
               <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                onClick={() => setIsServicesOpen(prev => !prev)}
                 className={`flex items-center justify-center p-3 rounded-xl transition-all duration-300 ${
                   isServiceActive() 
                     ? 'bg-gray-400/25 border border-gray-300/30 text-blue-300 shadow-lg shadow-blue-500/10' 
@@ -244,9 +245,7 @@ const Navbar = () => {
               >
                 <BiSolidCategory className="w-5 h-5" />
                 <HiChevronDown 
-                  className={`w-3 h-3 ml-1 transition-transform duration-300 ${
-                    isServicesOpen ? 'rotate-180' : ''
-                  }`} 
+                  className={`w-3 h-3 ml-1 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} 
                 />
               </button>
 
@@ -259,6 +258,10 @@ const Navbar = () => {
                     : `${glassItemBase} ${glassItemHover} text-gray-200 hover:text-blue-400`
                 }`}
                 title="About Us"
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsServicesOpen(false);
+                }}
               >
                 <HiUserGroup className="w-5 h-5" />
               </Link>
@@ -272,6 +275,10 @@ const Navbar = () => {
                     : `${glassItemBase} ${glassItemHover} text-gray-200 hover:text-blue-400`
                 }`}
                 title="Contact"
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsServicesOpen(false);
+                }}
               >
                 <HiMail className="w-5 h-5" />
               </Link>
@@ -279,35 +286,42 @@ const Navbar = () => {
               
             {/* Mobile Services Submenu */}
             <div 
-              className={`w-full transition-all duration-300 ease-in-out ${
-                isServicesOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-              style={{
-                overflow: 'hidden'
-              }}
+              className={`w-full transition-all duration-300 ease-in-out ${isServicesOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'}`}
+              style={{ overflow: 'hidden' }}
             >
               <div className="px-3 pt-2 space-y-1">
-                {servicesSubmenu.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    onClick={() => setIsServicesOpen(false)}
-                    className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-all duration-300 ${
-                      isActive(item.path)
-                        ? 'bg-gray-400/25 border border-gray-300/30 text-blue-300'
-                        : `${glassItemBase} text-gray-300 hover:bg-gray-500/20 hover:text-blue-400`
-                    }`}
-                  >
-                    <item.icon className="w-4 h-4" />
-                    <span className="text-sm">{item.name}</span>
-                  </Link>
-                ))}
+                {servicesSubmenu.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <Link
+                      key={item.name}
+                      to={item.path}
+                      onClick={() => {
+                        // when user selects a service, navigate and close menus
+                        setIsServicesOpen(false);
+                        setIsOpen(false);
+                      }}
+                      className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-all duration-300 ${
+                        isActive(item.path)
+                          ? 'bg-gray-400/25 border border-gray-300/30 text-blue-300'
+                          : `${glassItemBase} text-gray-300 hover:bg-gray-500/20 hover:text-blue-400`
+                      }`}
+                    >
+                      <Icon className="w-4 h-4" />
+                      <span className="text-sm">{item.name}</span>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
 
             {/* Mobile CTA Button */}
             <Link
               to="/contact"
+              onClick={() => {
+                setIsOpen(false);
+                setIsServicesOpen(false);
+              }}
               className="w-full flex items-center justify-center mt-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-medium hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-lg shadow-blue-500/30 border border-black/80"
             >
               Contact Us

@@ -144,8 +144,8 @@ function Home() {
 </div>
 <ServiceHome/>
 <AboutHome/>
-<TestimonialsSection/>
 <HomeWorkShow/>
+<TestimonialsSection/>
 <div className='bg-black py-5'>
   <Footer/>
 
