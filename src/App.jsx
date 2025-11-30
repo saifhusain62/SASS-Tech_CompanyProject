@@ -9,6 +9,7 @@ import DigitalMarketing from './pages/DigitalMarketing';
 import VideoEditing from './pages/VideoEditing';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
+import ScrollToTop from './components/ScrollTop';
 
 
 
@@ -17,7 +18,7 @@ function App() {
     <Router>
       {/* Main wrapper with flex column and min-height screen */}
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900">
-        
+        <ScrollToTop/>
         {/* Navbar */}
         <Navbar />
         

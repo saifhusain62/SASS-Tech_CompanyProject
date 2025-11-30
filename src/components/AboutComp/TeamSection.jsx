@@ -9,6 +9,8 @@ import Shakibimg from '/sakib.jpg'
 import Ruhulimg from '/Ruhul.png'
 import Prantoimg from '/Pranto.jpg'
 import Shantoimg from '/shanto.jpg'
+import Arafatimg from '/Arafat.png'
+import { Link } from 'react-router-dom';
 
 const TeamSection = () => {
   useEffect(() => {
@@ -36,10 +38,10 @@ const TeamSection = () => {
     },
     {
       id: 3,
-      name: 'Michael Chen',
-      role: 'Lead Designer',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-      bio: 'Creative mind crafting beautiful user experiences.',
+      name: 'Arafat Islam',
+      role: 'Co-Founder & Senior Wordpress Developer',
+      image: Arafatimg,
+      bio: 'A highly experienced Senior Wordpress Developer skilled in building fast, secure, and scalable web applications.',
     },
     {
       id: 4,
@@ -60,7 +62,7 @@ const TeamSection = () => {
       name: 'Ruhul Amin',
       role: 'Product Manager & Accountent',
       image: Ruhulimg,
-      bio: 'Bridging user needs with innovative product solutions.',
+      bio: 'A strategic Product Manager experienced in turning ideas into successful market-ready products. Skilled in product research & roadmap planning.',
     },
   ];
 
@@ -149,7 +151,7 @@ const TeamSection = () => {
                       />
 
                       {/* Online Indicator */}
-                      <div className="absolute bottom-4 right-4 w-5 h-5 bg-green-500 rounded-full border-3 border-gray-900 group-hover:animate-pulse"></div>
+                      {/* <div className="absolute bottom-4 right-4 w-5 h-5 bg-green-500 rounded-full border-3 border-gray-900 group-hover:animate-pulse"></div> */}
                     </div>
 
                     {/* Sparkle Effect */}
@@ -186,10 +188,14 @@ const TeamSection = () => {
           data-aos-delay="800"
           className="text-center mt-16"
         >
-          <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500/10 to-blue-600/10 border border-cyan-500/30 rounded-full text-white font-semibold hover:from-cyan-500 hover:to-blue-600 hover:border-transparent transition-all duration-500 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105">
+            <Link
+            to="/contact"
+            >
+          <button className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500/10 to-blue-600/10 border border-cyan-500/30 rounded-md text-white font-semibold hover:from-cyan-500 hover:to-blue-600 hover:border-transparent transition-all duration-500 hover:shadow-lg hover:shadow-cyan-500/25 hover:scale-105">
             <span>Join Our Team</span>
             <BsArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
           </button>
+          </Link>
         </div>
       </div>
 
