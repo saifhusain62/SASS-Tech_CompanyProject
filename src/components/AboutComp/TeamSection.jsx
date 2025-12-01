@@ -5,9 +5,9 @@ import 'aos/dist/aos.css';
 import { HiUsers, HiSparkles } from 'react-icons/hi';
 import { BsArrowRight } from 'react-icons/bs';
 import Saifimg from '/saif.png'
-import Shakibimg from '/sakib.jpg'
+import Shakibimg from '/sakib.png'
 import Ruhulimg from '/Ruhul.png'
-import Prantoimg from '/Pranto.jpg'
+import Prantoimg from '/Pranta.jpg'
 import Shantoimg from '/shanto.jpg'
 import Arafatimg from '/Arafat.png'
 import { Link } from 'react-router-dom';

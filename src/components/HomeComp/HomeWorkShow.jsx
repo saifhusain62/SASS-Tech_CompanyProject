@@ -2,6 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import forestweb from '/forestweb.png'
+import ecommerce1 from '/ecommerce1.png'
+import ecommerce2 from '/ecommerce2.png'
+import resturant from '/resturant.png'
+import moviehub from '/moviehub.png'
+import farm from '/farm.png'
 
 const RecentWorks = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -27,9 +33,9 @@ const RecentWorks = () => {
       id: 1,
       title: 'E-Commerce Platform',
       category: 'web',
-      description: 'Full-stack e-commerce solution with React & Node.js',
-      image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?w=500',
-      link: 'https://example.com/project1',
+      description: 'Full-stack e-commerce solution with React & Node.js Based on MERN',
+      image: ecommerce1,
+      link: 'https://idea-nect-hackathon-project-5grs.vercel.app/',
       tags: ['React', 'Node.js', 'MongoDB'],
     },
     {
@@ -61,11 +67,11 @@ const RecentWorks = () => {
     },
     {
       id: 5,
-      title: 'Portfolio Website',
+      title: 'Ecommerce Fruits sell Website',
       category: 'web',
       description: 'Responsive portfolio with animations',
-      image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=500',
-      link: 'https://example.com/project5',
+      image: ecommerce2,
+      link: 'https://fresh-fruits-shop.vercel.app/',
       tags: ['React', 'Tailwind', 'Framer Motion'],
     },
     {
@@ -95,6 +101,42 @@ const RecentWorks = () => {
       link: 'https://example.com/project8',
       tags: ['Figma', 'Adobe XD'],
     },
+    {
+      id: 9,
+      title: 'Forest Web Platform',
+      category: 'web',
+      description: 'Full-stack Forest web Based on Wordpress',
+      image: forestweb,
+      link: 'https://gustl-bul.de/',
+      tags: ['Wordpress', 'Woocommerce', 'Elementor'],
+    },
+    {
+      id: 10,
+      title: 'Resturant Website',
+      category: 'web',
+      description: 'Full-stack Forest web Based on MERN',
+      image: resturant,
+      link: 'https://fruits-ecommerce-ten.vercel.app/',
+      tags: ['React', 'Tailwind', 'Node.js','MongoDB'],
+    },
+    {
+      id: 11,
+      title: 'MovieHub Website',
+      category: 'web',
+      description: 'Full-stack Forest web Based on MERN',
+      image: moviehub,
+      link: 'https://movie-hub-seven-blond.vercel.app/',
+      tags: ['React', 'Tailwind', 'Node.js','MongoDB'],
+    },
+     {
+      id: 12,
+      title: 'Farm based Website',
+      category: 'web',
+      description: 'Full-stack Forest web Based on MERN',
+      image: farm,
+      link: 'https://farm-hub-ten.vercel.app/',
+      tags: ['React', 'Tailwind', 'Node.js','MongoDB'],
+    }
   ];
 
   const filteredWorks =
