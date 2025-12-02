@@ -8,6 +8,8 @@ import ecommerce2 from '/ecommerce2.png'
 import resturant from '/resturant.png'
 import moviehub from '/moviehub.png'
 import farm from '/farm.png'
+import cmit from '/cmit.png'
+import esports from '/esports.png'
 
 const RecentWorks = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -136,6 +138,24 @@ const RecentWorks = () => {
       image: farm,
       link: 'https://farm-hub-ten.vercel.app/',
       tags: ['React', 'Tailwind', 'Node.js','MongoDB'],
+    },
+     {
+      id: 13,
+      title: 'It-Farm based Website',
+      category: 'web',
+      description: 'Full-stack Forest web Based on Wordpress',
+      image: cmit,
+      link: 'https://cmitbangladesh.com/',
+      tags: ['Wordpress', 'Elementor', 'Woocommerce',],
+    },
+    {
+      id: 14,
+      title: 'E-sports Website',
+      category: 'web',
+      description: 'Full-stack Forest web Based on MERN',
+      image: esports,
+      link: 'https://tournamentixs.netlify.app/',
+      tags: ['React', 'Tailwind', 'Node.js',],
     }
   ];
 

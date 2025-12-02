@@ -1,9 +1,10 @@
 import React from 'react'
+import ContactSection from '../components/ContactComp/ContactHero'
 
 function Contact() {
   return (
     <div>
-      <h1>This is Contact page</h1>
+      <ContactSection/>
     </div>
   )
 }
