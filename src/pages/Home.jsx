@@ -96,7 +96,7 @@ function Home() {
           className="opacity-0 animate-[fadeInUp_0.6s_ease-out_1.5s_forwards] mt-2 sm:mt-4 md:mt-6"
         >
           <Link
-            to="/contact"
+            to="/orderpage"
             className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-xl font-medium hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-lg shadow-blue-500/30 border border-black/80 text-sm sm:text-base md:text-lg hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-blue-500/40 z-10"
           >
             Get Started

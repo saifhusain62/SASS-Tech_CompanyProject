@@ -232,7 +232,7 @@ const Footer = () => {
               
               {/* Bottom Links */}
               <div className="flex items-center space-x-6">
-                <a href="/privacy" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">
+                <a href="/orderpage" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">
                   Privacy Policy
                 </a>
                 <a href="/terms" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">

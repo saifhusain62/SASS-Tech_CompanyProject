@@ -10,6 +10,7 @@ import VideoEditing from './pages/VideoEditing';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollTop';
+import OrderPage from './pages/OrderPage'
 
 
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="/services/video-editing" element={<VideoEditing />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/orderpage" element={<OrderPage/>} />
           </Routes>
         </main>
         
