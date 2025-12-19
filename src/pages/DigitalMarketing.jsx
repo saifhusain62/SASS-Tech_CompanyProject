@@ -1,9 +1,15 @@
 import React from 'react'
-
+import Footer from '../components/Footer'
+import Digicomp from '../components/Digitalcomp/Digicomp'
+import GlassCards from '../components/HomeComp/GlassCards'
+import Digitalcard from '../components/Digitalcomp/Digitalcard'
 function DigitalMarketing() {
   return (
     <div>
-      <h1>This is DigitalMarketing page</h1>
+      <Digicomp/>
+      <Digitalcard/>
+      <GlassCards/>
+      <Footer/>
     </div>
   )
 }

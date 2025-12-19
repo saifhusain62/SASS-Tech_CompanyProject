@@ -1,9 +1,15 @@
 import React from 'react'
-
+import Footer from '../components/Footer'
+import Videocomp from '../components/Videoeditcomp/Videocomp'
+import GlassCards from '../components/HomeComp/GlassCards'
+import Videocard from '../components/Videoeditcomp/Videocard'
 function VideoEditing() {
   return (
     <div>
-      <h1>This is VideoEditing page</h1>
+      <Videocomp/>
+      <Videocard/>
+      <GlassCards/>
+      <Footer/>
     </div>
   )
 }
